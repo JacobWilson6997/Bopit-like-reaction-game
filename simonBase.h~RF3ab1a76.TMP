@@ -1,0 +1,42 @@
+#ifndef SIMONBASE_H
+#define SIMONBASE_H
+
+#include "stm32l476xx.h"
+
+enum States{
+	e_MENU,
+	e_COUNTDOWN,
+	e_IDSel,
+	e_1P,
+	e_2P,
+	e_2PVS,
+	e_GAMEOVER
+};
+
+enum CDStates{
+	e_READY,
+	e_SET,
+	e_GO
+};
+
+enum MenuOptions{
+	e_1PLAYER,
+	e_VS,
+	e_2PLAYER
+};
+
+enum PlayerIDOptions{
+	e_IDP1,
+	e_IDP2
+};
+
+
+//////////////////////////////////// FUNCTIONS ////////////////////////////////////////////
+
+void updateLCDandBars(uint8_t *str, char bars[4]);
+uint8_t genInput(uint8_t *inputDesired, char *lives);
+void rotateString(uint8_t *str, int strLen);
+void resetString(char *base, char *rotator, int len);
+void JoystickInit();
+
+#endif /* SIMONBASE_H */
